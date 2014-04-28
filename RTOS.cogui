@@ -23,9 +23,9 @@
 <input factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory">&#x0A;<org.coocox.welcome.ui.WelcomePage/>
 </input>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="E:/FreeRTOS/FreeRTOS-template-for-STM32F4-master/FreeRTOS-template-for-STM32F4-master/main.c" title="main.c" tooltip="E:/FreeRTOS/FreeRTOS-template-for-STM32F4-master/FreeRTOS-template-for-STM32F4-master/main.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="E:/FreeRTOS/repozytorium/main.c" title="main.c" tooltip="E:/FreeRTOS/repozytorium/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/RTOS/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2986" selectionTopPixel="1218"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1329" selectionTopPixel="3003"/>
 </editor>
 </editors>
 <views>
@@ -287,8 +287,29 @@
 <item historyLabel="main.c" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="main.c" index="2">
+<item historyLabel="main.c" index="2">
 <position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="4607" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="1653" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="1537" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="1463" y="20"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="1604" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="1534" y="27"/>
+</item>
+<item active="true" historyLabel="main.c" index="2">
+<position info="not_deleted" x="1662" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -297,6 +318,19 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f4xx.c" tooltip="PWM/cmsis_boot/system_stm32f4xx.c">
+<persistable path="/PWM/cmsis_boot/system_stm32f4xx.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx.h" tooltip="PWM/cmsis_boot/stm32f4xx.h">
+<persistable path="/PWM/cmsis_boot/stm32f4xx.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="PWM/main.c">
+<persistable path="/PWM/main.c"/>
+</file>
+<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
+<persistable>&#x0A;<subPage/>
+</persistable>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="AudioPlayer1/main.c">
 <persistable path="/AudioPlayer1/main.c"/>
 </file>
@@ -315,10 +349,6 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="FreeRTOS_test/main.c">
 <persistable path="/FreeRTOS_test/main.c"/>
 </file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>&#x0A;<subPage/>
-</persistable>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="natdiodtest/main.c">
 <persistable path="/natdiodtest/main.c"/>
 </file>
@@ -328,18 +358,8 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx.h" tooltip="natdiodtest/cmsis_boot/stm32f4xx.h">
 <persistable path="/natdiodtest/cmsis_boot/stm32f4xx.h"/>
 </file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>&#x0A;<subPage/>
-</persistable>
-</file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="E:\FreeRTOS\FreeRTOS-template-for-STM32F4-master\FreeRTOS-template-for-STM32F4-master\main.c">
 <persistable uri="file:/E:/FreeRTOS/FreeRTOS-template-for-STM32F4-master/FreeRTOS-template-for-STM32F4-master/main.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="FreeRTOSConfig.h" tooltip="AudioPlayer1/FreeRTOS/include/FreeRTOSConfig.h">
-<persistable path="/AudioPlayer1/FreeRTOS/include/FreeRTOSConfig.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_conf.h" tooltip="AudioPlayer1/cmsis_boot/stm32f4xx_conf.h">
-<persistable path="/AudioPlayer1/cmsis_boot/stm32f4xx_conf.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_conf.h" tooltip="AudioPlayer1/cmsis_boot/stm32f4xx_conf.h">
 <persistable path="/AudioPlayer1/cmsis_boot/stm32f4xx_conf.h"/>
