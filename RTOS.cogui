@@ -16,7 +16,6 @@
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
-<part id="3"/>
 </presentation>
 </folder>
 </info>
@@ -27,15 +26,11 @@
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="E:/FreeRTOS/repozytorium/main.c" title="main.c" tooltip="E:/FreeRTOS/repozytorium/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/RTOS/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="15589" selectionTopPixel="8380"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="9652" selectionTopPixel="5658"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx_rng.c" partName="stm32f4xx_rng.c" path="E:/FreeRTOS/repozytorium/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.c" title="stm32f4xx_rng.c" tooltip="E:/FreeRTOS/repozytorium/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/RTOS/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6708" selectionTopPixel="2550"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4_discovery_lis302dl.h" partName="stm32f4_discovery_lis302dl.h" title="stm32f4_discovery_lis302dl.h" tooltip="E:\FreeRTOS\repozytorium\FreeRTOS\include\stm32f4_discovery_lis302dl.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/E:/FreeRTOS/repozytorium/FreeRTOS/include/stm32f4_discovery_lis302dl.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="32044" selectionTopPixel="10890"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="task.h" partName="task.h" path="E:/FreeRTOS/repozytorium/FreeRTOS/include/task.h" title="task.h" tooltip="E:/FreeRTOS/repozytorium/FreeRTOS/include/task.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/RTOS/FreeRTOS/include/task.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="53372" selectionTopPixel="22050"/>
 </editor>
 </editors>
 <views>
@@ -69,7 +64,7 @@
 <viewState/>
 </view>
 <view id="org.coocox.builder.ui.views.ProjectView" partName="Project">
-<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="11">
+<viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="14">
 <expanded>
 <element path="/RTOS"/>
 <element path="/RTOS/cmsis"/>
@@ -80,7 +75,7 @@
 <element path="/RTOS/STM32F4xx_StdPeriph_Driver"/>
 </expanded>
 <selection>
-<element path="/RTOS/FreeRTOS/include"/>
+<element path="/RTOS/FreeRTOS/include/task.h"/>
 </selection>
 </viewState>
 </view>
@@ -306,19 +301,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/RTOS/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.c"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" uri="file:/E:/FreeRTOS/repozytorium/FreeRTOS/include/stm32f4_discovery_lis302dl.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/RTOS/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_rng.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/RTOS/FreeRTOS/include/task.h"/>
 </editors>
-<item historyLabel="tasks.c" index="0">
-<position/>
-</item>
-<item historyLabel="tasks.c" index="0">
-<position/>
-</item>
-<item historyLabel="tasks.c" index="0">
-<position/>
-</item>
-<item historyLabel="port.c" index="1">
-<position/>
-</item>
 <item historyLabel="port.c" index="1">
 <position/>
 </item>
@@ -454,8 +438,20 @@
 <item historyLabel="main.c" index="2">
 <position info="not_deleted" x="6029" y="0"/>
 </item>
-<item active="true" historyLabel="main.c" index="2">
+<item historyLabel="main.c" index="2">
 <position info="not_deleted" x="9845" y="56"/>
+</item>
+<item historyLabel="task.h" index="6">
+<position info="not_deleted" x="53372" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="15696" y="0"/>
+</item>
+<item historyLabel="main.c" index="2">
+<position info="not_deleted" x="9617" y="0"/>
+</item>
+<item active="true" historyLabel="main.c" index="2">
+<position info="not_deleted" x="17661" y="3"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -464,6 +460,9 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="task.h" tooltip="RTOS/FreeRTOS/include/task.h">
+<persistable path="/RTOS/FreeRTOS/include/task.h"/>
+</file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4_discovery_lis302dl.h" tooltip="E:\FreeRTOS\repozytorium\FreeRTOS\include\stm32f4_discovery_lis302dl.h">
 <persistable uri="file:/E:/FreeRTOS/repozytorium/FreeRTOS/include/stm32f4_discovery_lis302dl.h"/>
 </file>
@@ -475,9 +474,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" tooltip="RTOS/cmsis_boot/startup/startup_stm32f4xx.c">
 <persistable path="/RTOS/cmsis_boot/startup/startup_stm32f4xx.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="task.h" tooltip="RTOS/FreeRTOS/include/task.h">
-<persistable path="/RTOS/FreeRTOS/include/task.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f4xx.c" tooltip="PWM/cmsis_boot/system_stm32f4xx.c">
 <persistable path="/PWM/cmsis_boot/system_stm32f4xx.c"/>

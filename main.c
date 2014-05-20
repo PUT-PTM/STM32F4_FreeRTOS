@@ -267,6 +267,7 @@ void Dioda_1( void *pvparameters )
 void Dioda_2( void *pvparameters )
 {
 	const portTickType xDelay_2 = 200 / portTICK_RATE_MS;
+	const portTickType xDelay = 1000 / portTICK_RATE_MS;
 	unsigned int i=0;
 
 	while(1){
@@ -288,6 +289,7 @@ void Dioda_2( void *pvparameters )
 		dioda_2_priority=0;
 		vTaskResume( xHandle_3 );
 		vTaskResume( xHandle_4 );
+		vTaskDelay( xDelay );
 		vTaskResume( xHandle_5 );
 		}
 	}
@@ -347,7 +349,7 @@ void Dioda_4( void *pvparameters )
 
 void Dioda_5( void *pvparameters )
 {
-	const portTickType xDelay = 150 / portTICK_RATE_MS;
+	const portTickType xDelay = 300 / portTICK_RATE_MS;
 	unsigned int i=0, counter=0;
 
 	uint32_t losowa = 0;
@@ -400,7 +402,7 @@ void Dioda_6( void *pvparameters )
 {
 
 	const portTickType xDelay = 1000 / portTICK_RATE_MS;
-	//const portTickType xDelay2 = 20 / portTICK_RATE_MS;
+	const portTickType xDelay2 = 1000 / portTICK_RATE_MS;
 	unsigned int i=0;
 	while(1){
 
@@ -422,6 +424,7 @@ void Dioda_6( void *pvparameters )
 
 			vTaskResume( xHandle_3 );
 			vTaskResume( xHandle_4 );
+			vTaskDelay( xDelay2 );
 			vTaskResume( xHandle_5 );
 
 			//vTaskDelay( xDelay2 );
