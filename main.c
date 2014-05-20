@@ -7,6 +7,7 @@
 #include "FreeRTOS/include/FreeRTOS.h"
 #include "FreeRTOS/include/task.h"
 #include "FreeRTOS/include/semphr.h"
+#include "FreeRTOS/include/stm32f4_discovery_lis302dl.h"
 
 uint64_t u64IdleTicksCnt=0; // Counts when the OS has no task to execute.
 uint64_t tickTime=0;        // Counts OS ticks (default = 1000Hz).
@@ -16,6 +17,16 @@ int dioda_2_priority=0;
 xTaskHandle xHandle_3;
 xTaskHandle xHandle_4;
 xTaskHandle xHandle_5;
+xTaskHandle xHandle_6;
+
+uint32_t LIS302DL_TIMEOUT_UserCallback()
+{
+	return -1;
+}
+
+int8_t acc_x;
+int8_t acc_y;
+int8_t acc_z;
 
 void GPIOInit(void);
 void GPIOInit_PWM(void);
@@ -23,12 +34,14 @@ void TIM4_Init(void);
 void TIM4_IRQHandler(void);
 void diody(int x);
 void RNG_Config(void);
+void SPIInit(void);
 
 void Dioda_1 (void * pvparameters);
 void Dioda_2 (void * pvparameters);
 void Dioda_3 (void * pvparameters);
 void Dioda_4 (void * pvparameters);
 void Dioda_5 (void * pvparameters);
+void Dioda_6 (void * pvparameters);
 
 int main(void)
 {
@@ -195,17 +208,22 @@ void vTaskPrioritySet( xTaskHandle xTask, unsigned portBASE_TYPE uxNewPriority )
 	SystemInit();
 	SystemCoreClockUpdate();
 	GPIOInit();
+	SPIInit();
 	RNG_Config();
 	
-	xTaskCreate( Dioda_1, ( signed char * ) "Dioda_1", 100, NULL, 2, NULL );
+	//#define xTaskCreate( pvTaskCode, pcName, usStackDepth, pvParameters, uxPriority, pxCreatedTask )
 
-	xTaskCreate( Dioda_2, ( signed char * ) "Dioda_2", 100, NULL, 1, NULL );
+	xTaskCreate( Dioda_1, ( signed char * ) "Dioda_1", 100, NULL, 3, NULL );
 
-	xTaskCreate( Dioda_3, ( signed char * ) "Dioda_3", 100, NULL, 2, &xHandle_3 );
+	xTaskCreate( Dioda_2, ( signed char * ) "Dioda_2", 100, NULL, 2, NULL );
 
-	xTaskCreate( Dioda_4, ( signed char * ) "Dioda_4", 100, NULL, 2, &xHandle_4 );
+	xTaskCreate( Dioda_3, ( signed char * ) "Dioda_3", 100, NULL, 4, &xHandle_3 );
 
-	xTaskCreate( Dioda_5, ( signed char * ) "Dioda_5", 100, NULL, 2, &xHandle_5 );
+	xTaskCreate( Dioda_4, ( signed char * ) "Dioda_4", 100, NULL, 4, &xHandle_4 );
+
+	xTaskCreate( Dioda_5, ( signed char * ) "Dioda_5", 100, NULL, 3, &xHandle_5 );
+
+	xTaskCreate( Dioda_6, ( signed char * ) "Dioda_6", 100, NULL, 2, &xHandle_6 );
 
 	vTaskStartScheduler(); // This should never return.
 
@@ -248,7 +266,6 @@ void Dioda_1( void *pvparameters )
 
 void Dioda_2( void *pvparameters )
 {
-	const portTickType xDelay = 10 / portTICK_RATE_MS;
 	const portTickType xDelay_2 = 200 / portTICK_RATE_MS;
 	unsigned int i=0;
 
@@ -272,8 +289,6 @@ void Dioda_2( void *pvparameters )
 		vTaskResume( xHandle_3 );
 		vTaskResume( xHandle_4 );
 		vTaskResume( xHandle_5 );
-		vTaskDelay( xDelay );
-
 		}
 	}
 }
@@ -332,7 +347,7 @@ void Dioda_4( void *pvparameters )
 
 void Dioda_5( void *pvparameters )
 {
-	const portTickType xDelay = 250 / portTICK_RATE_MS;
+	const portTickType xDelay = 150 / portTICK_RATE_MS;
 	unsigned int i=0, counter=0;
 
 	uint32_t losowa = 0;
@@ -358,6 +373,7 @@ void Dioda_5( void *pvparameters )
 
 		/* Get a 32bit Random number */
 		losowa = RNG_GetRandomNumber();
+		losowa/=100000;
 
 		if(losowa>=25000)
 		{
@@ -376,6 +392,39 @@ void Dioda_5( void *pvparameters )
 			vTaskResume( xHandle_4 );
 
 			counter++;
+		}
+	}
+}
+
+void Dioda_6( void *pvparameters )
+{
+
+	const portTickType xDelay = 1000 / portTICK_RATE_MS;
+	//const portTickType xDelay2 = 20 / portTICK_RATE_MS;
+	unsigned int i=0;
+	while(1){
+
+		LIS302DL_Read(&acc_z, LIS302DL_OUT_Z_ADDR, 1);
+
+		if(acc_z<0)
+		{
+			vTaskSuspend( xHandle_3 );
+			vTaskSuspend( xHandle_4 );
+			vTaskSuspend( xHandle_5 );
+
+			for(i=0;i<3;i++)
+			{
+				GPIO_SetBits(GPIOD, GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15);
+				vTaskDelay( xDelay );
+				GPIO_ResetBits(GPIOD, GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15);
+				vTaskDelay( xDelay );
+			}
+
+			vTaskResume( xHandle_3 );
+			vTaskResume( xHandle_4 );
+			vTaskResume( xHandle_5 );
+
+			//vTaskDelay( xDelay2 );
 		}
 	}
 }
@@ -417,6 +466,44 @@ void GPIOInit_PWM(void){
 		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
 		GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 		GPIO_Init(GPIOD,&GPIO_InitStructure);
+}
+
+void SPIInit(void){
+
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI2, ENABLE);
+
+	// konfiguracja SPI w trybie MASTER
+		SPI_InitTypeDef SPI_InitStructure;
+		SPI_I2S_DeInit(SPI2);
+		SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+		SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
+		SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
+		SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;
+		SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
+		SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_4;
+		SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
+		SPI_InitStructure.SPI_CRCPolynomial = 7;
+		SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
+		SPI_Init(SPI2, &SPI_InitStructure);
+
+		SPI_Cmd(SPI2, ENABLE);
+
+		// struktura do konfiguracji akcelerometru
+		 LIS302DL_InitTypeDef LIS302DL_InitStruct;
+
+		 // uruchomienie ukladu
+		 LIS302DL_InitStruct.Power_Mode = LIS302DL_LOWPOWERMODE_ACTIVE;
+		 // wybor czestotliwosci aktualizacji pomiarow
+		 LIS302DL_InitStruct.Output_DataRate = LIS302DL_DATARATE_100;
+		 // uruchomienie pomiaru dla wszystkich osi (x,y,z)
+		 LIS302DL_InitStruct.Axes_Enable = LIS302DL_X_ENABLE | LIS302DL_Y_ENABLE |
+		LIS302DL_Z_ENABLE;
+		 // wybor zakresu pomiarow (+-2.3g)
+		 LIS302DL_InitStruct.Full_Scale = LIS302DL_FULLSCALE_2_3;
+		 LIS302DL_InitStruct.Self_Test = LIS302DL_SELFTEST_NORMAL;
+		 // aktualizacja ustawien akcelerometru na podstawie wypelnionej struktury
+		 LIS302DL_Init(&LIS302DL_InitStruct);
 }
 
 void TIM4_Init(void){
