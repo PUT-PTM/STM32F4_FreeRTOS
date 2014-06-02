@@ -14,7 +14,7 @@ W fazie finalnej projekt posiada 5 zadań:
 * Zapalanie i gaszenie diody,
 * Zapalenie i gaszenie diody po opóźnieniu rozpoczęcia działania programu (5 sekund),
 * Wykonanie sekwencji zapalania i gaszenia diód (wywoływane losowo, zadanie usuwane po kilku wykonaniach),
-* Zapalenie jednej diody po naciśnięciu przycisku i zgaszenie innych (zmiana prorytetów zadań pod wpływem przycisku) oraz wywołanie odpowiedniej sekwencji diód po puszczeniu przycisku,
+* Zapalenie jednej diody po naciśnięciu przycisku i zgaszenie innych (zmiana priorytetów zadań pod wpływem przycisku) oraz wywołanie odpowiedniej sekwencji diód po puszczeniu przycisku,
 * Zapalanie i gaszenie diód po osiągnięciu przez akcelerometr odpowiedniej wartości (zawieszenie określonych zadań zadań pod wpływem wartości odczytanej z akcelerometru).
 
 ##Realizacja
