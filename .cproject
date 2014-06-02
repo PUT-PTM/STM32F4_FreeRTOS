@@ -33,10 +33,10 @@
 				<pathentry include="C:/arm-none-eabi-gcc-4_6/arm-none-eabi/include" kind="inc" path="" system="true"/>
 				<pathentry include="C:/arm-none-eabi-gcc-4_6/lib/gcc/arm-none-eabi/4.6.2/include" kind="inc" path="" system="true"/>
 				<pathentry include="C:/arm-none-eabi-gcc-4_6/lib/gcc/arm-none-eabi/4.6.2/include-fixed" kind="inc" path="" system="true"/>
-				<pathentry include="C:/CooCox/CoIDE/workspace/AudioPlayer1" kind="inc" path="" system="true"/>
-				<pathentry include="C:/CooCox/CoIDE/workspace/AudioPlayer1/cmsis" kind="inc" path="" system="true"/>
-				<pathentry include="C:/CooCox/CoIDE/workspace/AudioPlayer1/cmsis_boot" kind="inc" path="" system="true"/>
-				<pathentry include="C:/CooCox/CoIDE/workspace/AudioPlayer1/STM32F4xx_StdPeriph_Driver/inc" kind="inc" path="" system="true"/>
+				<pathentry include="C:/CooCox/CoIDE/workspace/FreeRTOS" kind="inc" path="" system="true"/>
+				<pathentry include="C:/CooCox/CoIDE/workspace/FreeRTOS/cmsis" kind="inc" path="" system="true"/>
+				<pathentry include="C:/CooCox/CoIDE/workspace/FreeRTOS/cmsis_boot" kind="inc" path="" system="true"/>
+				<pathentry include="C:/CooCox/CoIDE/workspace/FreeRTOS/STM32F4xx_StdPeriph_Driver/inc" kind="inc" path="" system="true"/>
 				<pathentry kind="mac" name="__GNUC__" path="" value=""/>
 				<pathentry kind="mac" name="USE_STDPERIPH_DRIVER" path="" value=""/>
 				<pathentry kind="mac" name="STM32F407VG" path="" value=""/>

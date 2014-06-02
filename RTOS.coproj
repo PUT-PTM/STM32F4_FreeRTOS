@@ -36,8 +36,8 @@
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
-        <Option name="Path" value="C:/CooCox/CoIDE/workspace/AudioPlayer1 Again/"/>
-        <Option name="Name" value="AudioPlayer1"/>
+        <Option name="Path" value="c:/coocox/coide/workspace/freertos/"/>
+        <Option name="Name" value="FreeRTOS"/>
         <Option name="HEX" value="1"/>
         <Option name="BIN" value="1"/>
       </Output>
@@ -170,9 +170,9 @@
     <File name="FreeRTOS/include" path="" type="2"/>
     <File name="STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.c" path="STM32F4xx_StdPeriph_Driver/src/stm32f4xx_exti.c" type="1"/>
     <File name="FreeRTOS/include/FreeRTOS.h" path="FreeRTOS/include/FreeRTOS.h" type="1"/>
+    <File name="STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.c" path="STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.c" type="1"/>
     <File name="FreeRTOS/include/stm32f4_discovery_lis302dl.h" path="FreeRTOS/include/stm32f4_discovery_lis302dl.h" type="1"/>
     <File name="STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.c" path="STM32F4xx_StdPeriph_Driver/src/stm32f4xx_crc.c" type="1"/>
-    <File name="STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.c" path="STM32F4xx_StdPeriph_Driver/src/stm32f4xx_syscfg.c" type="1"/>
     <File name="stm32f4_discovery.h" path="stm32f4_discovery.h" type="1"/>
     <File name="STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.c" path="STM32F4xx_StdPeriph_Driver/src/stm32f4xx_hash_md5.c" type="1"/>
     <File name="STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.c" path="STM32F4xx_StdPeriph_Driver/src/stm32f4xx_wwdg.c" type="1"/>
